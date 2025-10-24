@@ -1,0 +1,15 @@
+CREATE TABLE Turnos (
+    id_turno INT IDENTITY(1,1) PRIMARY KEY,
+    id_medico INT,
+    id_paciente INT,
+    fecha DATE,
+    hora TIME,
+    FOREIGN KEY (id_medico) REFERENCES Medicos(id_medico),
+    FOREIGN KEY (id_paciente) REFERENCES Pacientes(id_paciente)
+);
+
+INSERT INTO Turnos (id_medico, id_paciente, fecha, hora) VALUES
+(1, 1, '2025-10-24', '09:00:00'),
+(1, 2, '2025-10-24', '10:00:00'),
+(2, 3, '2025-10-24', '11:00:00'),
+(3, 4, '2025-10-25', '14:00:00');
