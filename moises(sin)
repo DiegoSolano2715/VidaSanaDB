@@ -20,3 +20,12 @@ FROM Turnos T
 JOIN Medicos M ON T.id_medico = M.id_medico
 JOIN Pacientes P ON T.id_paciente = P.id_paciente
 WHERE T.fecha = CAST(GETDATE() AS DATE);
+
+SELECT TOP 1 
+    M.nombre,
+    COUNT(*) AS total_citas
+FROM Turnos T
+JOIN Medicos M ON T.id_medico = M.id_medico
+WHERE T.fecha = CAST(GETDATE() AS DATE)
+GROUP BY M.nombre
+ORDER BY total_citas DESC;
