@@ -1,0 +1,6 @@
+CREATE TABLE Pacientes (
+    id_paciente INT IDENTITY(1,1) PRIMARY KEY,
+    nombre NVARCHAR(100),
+    edad INT
+);
+
