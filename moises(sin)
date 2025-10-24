@@ -5,3 +5,18 @@ CREATE TABLE Medicos (
     nombre NVARCHAR(100),
     especialidad NVARCHAR(100)
 );
+INSERT INTO Medicos (nombre, especialidad) VALUES
+('Dr. Juan Pérez', 'Cardiología'),
+('Dra. Ana López', 'Pediatría'),
+('Dr. Carlos Gómez', 'Dermatología');
+
+SELECT 
+    T.id_turno,
+    M.nombre AS medico,
+    P.nombre AS paciente,
+    T.fecha,
+    T.hora
+FROM Turnos T
+JOIN Medicos M ON T.id_medico = M.id_medico
+JOIN Pacientes P ON T.id_paciente = P.id_paciente
+WHERE T.fecha = CAST(GETDATE() AS DATE);
