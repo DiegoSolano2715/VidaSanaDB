@@ -1,0 +1,7 @@
+Medicos
+
+CREATE TABLE Medicos (
+    id_medico INT IDENTITY(1,1) PRIMARY KEY,
+    nombre NVARCHAR(100),
+    especialidad NVARCHAR(100)
+);
