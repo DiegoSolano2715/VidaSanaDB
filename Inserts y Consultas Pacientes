@@ -1,0 +1,21 @@
+INSERT INTO Pacientes (nombre, edad) VALUES
+('María Fernández', 30),
+('Pedro Sánchez', 45),
+('Lucía Torres', 25),
+('Jorge Díaz', 60);
+
+SELECT 
+    P.nombre AS paciente,
+    M.nombre AS medico,
+    M.especialidad
+FROM Turnos T
+JOIN Pacientes P ON T.id_paciente = P.id_paciente
+JOIN Medicos M ON T.id_medico = M.id_medico;
+
+SELECT 
+    AVG(cantidad_citas * 1.0) AS promedio_citas_por_medico
+FROM (
+    SELECT id_medico, COUNT(*) AS cantidad_citas
+    FROM Turnos
+    GROUP BY id_medico
+) AS sub;
