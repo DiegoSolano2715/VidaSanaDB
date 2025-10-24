@@ -21,3 +21,10 @@ WHERE id_paciente NOT IN (
     SELECT id_paciente FROM Turnos
 );
 
+
+SELECT 
+    M.nombre,
+    COUNT(T.id_turno) AS total_citas
+FROM Medicos M
+LEFT JOIN Turnos T ON M.id_medico = T.id_medico
+GROUP BY M.nombre;
